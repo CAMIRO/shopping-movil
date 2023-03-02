@@ -1,0 +1,10 @@
+.Breadcrumb {
+    margin-top: 20px
+}
+.breadcrumb-not-active {
+    padding-right: 10px;
+}
+    
+.breadcrumb-active {
+  font-weight: bold;
+}
