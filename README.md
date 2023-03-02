@@ -26,3 +26,12 @@ Consulta la sección sobre [ejecución de pruebas](https://facebook.github.io/cr
 ### `yarn lint`
 
 Ejecuta los linters del proyecto.
+
+## TODO:
+
+1. Ecommerce
+
+✅ Muestra una lista de productos que vienen de un JSON
+- Remplaza el mock con el fetch real
+- Agrega el router
+
