@@ -9,7 +9,6 @@ const routes = [
 
 export function Breadcrumbs() {
     const breadcrumbs = useBreadcrumbs(routes)
-    console.log(location.pathname)
     
     return (
         <nav key={breadcrumbs.key} className='Breadcrumb'>
