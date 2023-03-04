@@ -63,3 +63,21 @@ Ejecuta los linters del proyecto.
     - Marca 
     - Modelo 
     - Precio 
+
+5. Acciones Producto
+- Se mostrará dos tipos de selectores, donde el usuario, podra seleccionar el tipo del producto que quiere añadir a la cesta. Se mostrarán los selectores de opciones para las siguiente atributos: 
+    - Almacenamiento  
+    - Colores
+- Aunque solo exista una opción, se mostrará el selector con la información. Para este caso de uso, deberá estar seleccionado por defecto.
+- Se visualizará un boton de Añadir, donde el usuario, un vez seleccionada las opciones, añadirá el producto a la cesta.
+- Al añadir un producto mediante el API, se requiere mandar la siguiente información:
+    - El identificador del producto
+    - El codigo de color seleccionado
+    - El codigo de la capacidad de almacenamiento seleccionada
+- La petición de añadir, devuelve en la respuesta, el numero de productos que hay en la cesta. Este valor deberá mostrarse en la cabecera de la aplicación en cualquier vista de la misma. Para ello se requiere persistir el dato
+
+6. Persistencia de datos 
+Se requiere, añadir un almacenaje en cliente de los datos que se reciban desde el API. Lo que se quiere ofrecer es un sistema de cacheo, para no se realicen cada vez peticiones al API. Por ello, se require definir la siguiente funcionalidad:
+- Se almacenará la información cada vez que se solicite al servicio del API 
+- Se guardará dicha información, y tendrá una expiración de 1 hora, una vez excedido dicho tiempo, deberá revalidarse la información.
+- Se podrá utilizar cualquier metodo de storage para almacenar dicha información, ya sea del navegador o en memoria, pero siempre en cliente. 

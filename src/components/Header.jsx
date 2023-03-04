@@ -1,6 +1,6 @@
 import './Header.css'
 import { Breadcrumbs } from './Breadcrumbs.jsx'
-import { ShopButton } from './ShopButton.jsx'
+import { Cart } from './Cart.jsx'
 import { Logo } from './Logo.jsx'
 
 export function Header (){
@@ -13,7 +13,7 @@ export function Header (){
                 <Logo />
                 <Breadcrumbs />
             </div>
-            <ShopButton/>
+            <Cart/>
         </main>
        
     )

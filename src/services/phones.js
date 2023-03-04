@@ -15,7 +15,4 @@ export const fetchPhones = async () => {
     }catch (error){
         throw new Error('Error obteniendo los móviles')
     }
-
-    
-  
 }

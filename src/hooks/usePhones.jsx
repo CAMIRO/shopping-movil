@@ -31,8 +31,6 @@ export function usePhones ({ search }) {
             phone.brand.toLowerCase().includes(search)
          || phone.model.toLowerCase().includes(search)
         ,[phones]))
-    
-
 
     return { phones: searchedPhones, getPhones, loading, apiError }
 }
