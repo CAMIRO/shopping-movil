@@ -1,5 +1,5 @@
 import { useState,  useRef, useMemo, useCallback, useEffect } from 'react'
-import { fetchPhones } from '../services/phones.js'
+import { fetchPhonesCache } from '../services/phones.js'
 
 export function usePhones ({ search }) {
     const [phones, setPhones] = useState([])
@@ -13,7 +13,7 @@ export function usePhones ({ search }) {
             setLoading(true)
             setError(null)
             previousResults.current = search
-            const newPhones = await fetchPhones()
+            const newPhones = await fetchPhonesCache()
             setPhones(newPhones)
         }catch (e) {
             setError(e.message)

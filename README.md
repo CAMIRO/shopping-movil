@@ -88,6 +88,6 @@ Se requiere, añadir un almacenaje en cliente de los datos que se reciban desde 
 
 ✅ Se almacenará la información cada vez que se solicite al servicio del API 
 
-- Se guardará dicha información, y tendrá una expiración de 1 hora, una vez excedido dicho tiempo, deberá revalidarse la información.
+✅ Se guardará dicha información, y tendrá una expiración de 1 hora, una vez excedido dicho tiempo, deberá revalidarse la información.
 
 ✅ Se podrá utilizar cualquier metodo de storage para almacenar dicha información, ya sea del navegador o en memoria, pero siempre en cliente. 

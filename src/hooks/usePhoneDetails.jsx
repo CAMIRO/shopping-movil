@@ -1,6 +1,6 @@
 
 import { useState, useCallback, useEffect } from 'react'
-import { fetchPhoneDetails } from '../services/phones.js'
+import { fetchPhoneDetailsCache } from '../services/phones.js'
 
 export function usePhoneDetails (id) {
     const [phoneDetails, setPhoneDetails] = useState({})
@@ -11,7 +11,7 @@ export function usePhoneDetails (id) {
         try{
             setLoading(true)
             setError(null)
-            const newPhoneDetails = await fetchPhoneDetails(id)
+            const newPhoneDetails = await fetchPhoneDetailsCache(id)
             setPhoneDetails(newPhoneDetails)
 
         }catch(e){

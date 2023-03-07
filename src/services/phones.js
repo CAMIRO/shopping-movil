@@ -1,6 +1,8 @@
 const URL = 'https://itx-frontend-test.onrender.com/api'
+let phones =  null
+let phonesDetails = null
 
-export const fetchPhones = async () => {
+const fetchPhones = async () => {
  
     try {
         const response = await fetch(`${URL}/product`)
@@ -19,7 +21,22 @@ export const fetchPhones = async () => {
     }
 }
 
-export const fetchPhoneDetails = async ( id ) => {
+export const fetchPhonesCache = async () => {
+    const currentDate = new Date()
+    if (phones && currentDate.getTime() - phones.timestamp < 3600000) {
+        return phones.data
+    }
+    const response = await fetchPhones()
+
+    phones = {
+        data: response,
+        timestamp: currentDate.getTime()
+    }
+    return response
+
+}
+
+const fetchPhoneDetails = async ( id ) => {
     try {
         const response = await fetch(`${URL}/product/${id}`)
         return await response.json()
@@ -27,6 +44,21 @@ export const fetchPhoneDetails = async ( id ) => {
     }catch (error){
         throw new Error('Error obteniendo detalles del movil: ', id)
     }
+    
+}
+
+export const fetchPhoneDetailsCache = async (id) => {
+    const currentDate = new Date()
+    if (phonesDetails && phonesDetails.data.id === id && currentDate.getTime() - phonesDetails.timestamp < 3600000) {
+        return phonesDetails.data
+    }
+    const response = await fetchPhoneDetails(id)
+
+    phonesDetails = {
+        data: response,
+        timestamp: currentDate.getTime()
+    }
+    return response
 }
 
 export const postPhone = async ({ id, selectedColorCode, selectedStorageCode }) => {
