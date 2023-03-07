@@ -49,7 +49,6 @@ export function Products (){
                         ? <p>Cargando...</p>
                         : <Phones phones={phones} />
                 }
-                
             </main>
         </div>
        

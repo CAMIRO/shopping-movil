@@ -8,13 +8,13 @@ function  ListOfPhones ({ phones }) {
     const checkPhoneInCart = phone => cart.some(item => item.id === phone.id)
    
     return (
-        <ul>{phones.map(phone => {
+        <ul>{phones?.map(phone => {
             const { model } = phone
             const dashedModel = model.replace(/\s/g, '-')
             const isPhoneInCart = checkPhoneInCart(phone)
             return (
                 <li key={phone.id}>
-                    <Link to={`/${dashedModel}`}>
+                    <Link to={`/${dashedModel}`} state={{ id: phone.id }}>
                         <img src={phone.image} alt={model} />
                         <div className='product-container'>
                             <span>{phone.brand} {model}</span> 
@@ -52,9 +52,9 @@ export function Phones ({ phones }) {
 }
 
 ListOfPhones.propTypes = {
-    phones: PropTypes.array.isRequired
+    phones: PropTypes.array
 }
 
 Phones.propTypes = {
-    phones: PropTypes.array.isRequired
+    phones: PropTypes.array
 }
